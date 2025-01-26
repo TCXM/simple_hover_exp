@@ -1,0 +1,19 @@
+<launch>
+    <!-- Map Config -->
+    <arg name="map_size_x" value="60.0"/>
+    <arg name="map_size_y" value="40.0"/>
+    <arg name="map_size_z" value="10.0"/>
+
+    <!-- Robot Config -->
+    <arg name="explorer_uav_ids" value="0,1,2" />
+    <arg name="odom_topic" value="visual_slam/odom" />
+
+    <node pkg="simple_hover_exp" type="exploration_manager.py" name="exploration_manager" output="screen">
+        <param name="map_size_x" value="$(arg map_size_x)"/>
+        <param name="map_size_y" value="$(arg map_size_y)"/>
+        <param name="map_size_z" value="$(arg map_size_z)"/>
+        <param name="odom_topic" value="$(arg odom_topic)"/>
+        <param name="explorer_uav_ids" value="$(arg explorer_uav_ids)"/>
+    </node>
+
+</launch>
