@@ -34,7 +34,7 @@ class Explorer:
 
         # world interface
         self.detect_objects_pub = rospy.Publisher(
-            "/detected_objects", String, queue_size=10
+            "/detect_region", String, queue_size=10
         )
 
     def odom_cb(self, msg: Odometry):
@@ -101,7 +101,7 @@ class Explorer:
         max_x = current_exp_point[0] + block_size / 2
         min_y = current_exp_point[1] - block_size / 2
         max_y = current_exp_point[1] + block_size / 2
-        self.detect_objects_pub.publish(f"{min_x},{min_y}-{max_x},{max_y}")
+        self.detect_objects_pub.publish(f"{min_x},{min_y}~{max_x},{max_y}")
 
 
 class ExplorationManager:
