@@ -1,11 +1,10 @@
 #! /usr/bin/env python
-import rospy, json, utils
+import rospy, utils
 from typing import Dict, Tuple, List
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import PoseStamped, Pose
 from visualization_msgs.msg import Marker
 from std_msgs.msg import String
-from msgs.srv import StringSrv, StringSrvRequest, StringSrvResponse
 
 REACHED_THRESHOLD = 1
 BLOCK_SIZE = 5
